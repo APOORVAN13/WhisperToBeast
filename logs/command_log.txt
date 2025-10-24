@@ -1,0 +1,9 @@
+[2025-10-24 12:41:04] 🟢 Voice trigger listener started
+[2025-10-24 12:41:09] 🎙️ Transcribed: fimulate usb keylogger
+[2025-10-24 12:41:09] ⚠️ No matching command
+[2025-10-24 12:41:15] 🎙️ Transcribed: simulate usb keylogger
+[2025-10-24 12:41:15] 🎯 Triggered: simulate usb keylogger
+[2025-10-24 12:41:15] ✅ Executed: simulate usb keylogger
+[2025-10-24 12:41:22] 🎙️ Transcribed: 
+[2025-10-24 12:41:22] ⚠️ No matching command
+[2025-10-24 12:41:25] 🔴 Listener stopped

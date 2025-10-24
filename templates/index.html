@@ -1,0 +1,69 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Whispertobeast Dashboard</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #1e1e1e; color: #eee; }
+        h2, h3 { color: #70e0ff; }
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 14px;
+            background-color: #444;
+            color: white;
+            border: 1px solid #888;
+            cursor: pointer;
+        }
+        button:hover { background-color: #666; }
+        pre {
+            background-color: black;
+            color: lime;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <h2>🧠 Whispertobeast Dashboard (Simulations Only)</h2>
+
+    <div>
+        <button onclick="trigger('credential_dump')">🟠 Credential Dump</button>
+        <button onclick="trigger('privilege_escalation')">🔺 Privilege Escalation</button>
+        <button onclick="trigger('persistence')">📌 Persistence</button>
+        <button onclick="trigger('data_exfiltration')">📤 Data Exfiltration</button>
+        <button onclick="trigger('ransomware')">💀 Ransomware</button>
+        <button onclick="trigger('decrypt')">🔓 Decrypt Files</button>
+        <button onclick="trigger('usb_keylogger')">⌨️ USB Keylogger</button>
+        <button onclick="trigger('screen_capture')">📸 Screen Capture</button>
+        <button onclick="trigger('clipboard_hijack')">📋 Clipboard Hijack</button>
+    </div>
+
+    <h3>📜 Activity Logs</h3>
+    <pre id="logOutput">Loading logs...</pre>
+
+    <script>
+        function trigger(action) {
+            fetch('/trigger/' + action)
+                .then(res => res.json())
+                .then(data => {
+                    console.log("Triggered:", data);
+                    loadLogs(); // refresh logs
+                });
+        }
+
+        function loadLogs() {
+            fetch('/logs')
+                .then(res => res.json())
+                .then(lines => {
+                    document.getElementById("logOutput").textContent = lines.join("");
+                });
+        }
+
+        setInterval(loadLogs, 5000);
+        loadLogs();
+    </script>
+</body>
+</html>
